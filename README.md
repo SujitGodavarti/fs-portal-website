@@ -16,5 +16,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    `ng --version`.
 - Install latest angular cli version from the command prompt by running the command `npm install -g @angular/cli@latest`.
 - Open the local folder to which the repository has been cloned and run command prompt from that location. Then run the below commands.
-- Run `npm install` command to install all the required node_modules for this app.
+- Run `npm install` command to install all the required dependencies for this app.
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of     the source files.
