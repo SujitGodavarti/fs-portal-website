@@ -1,0 +1,101 @@
+<div class="div-full-page">
+    <form>
+        <div class="row col-12 form-group form-inline">
+            <input id="txtSearch" class="form-control col-4" type="text" placeholder="Search for investor account..." (input)="onSearchChange($event.target.value)"/>
+        </div>
+    </form>
+
+    <!--********* ACCOUNTS TABLE ********* -->
+    <div class="div-table">
+        <table class="table table-striped">
+            <thead class="thead-design">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" sortable="AccountCode" (sort)="onSort($event)">Account Code</th>
+                    <th scope="col" sortable="AccountName" (sort)="onSort($event)">Account Name</th>
+                    <th scope="col" sortable="AvailableCash" (sort)="onSort($event)">Available Cash</th>
+                    <th scope="col" sortable="LocalCurrency" (sort)="onSort($event)">Local Currency</th>
+                    <th scope="col" sortable="NoofHoldings" (sort)="onSort($event)">No of Holdings</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let account of accounts; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td><ngb-highlight [result]="account.AccountCode" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="account.AccountName" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="account.AvailableCash" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="account.LocalCurrency" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="account.NoofHoldings" [term]="searchTerm"></ngb-highlight></td>
+            <td><button type="button" class='btn btn-link float-left' (click)='openAddHoldingModal(account)' title='Add holding to account'>Add Holding</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--********* ADD HOLDING MODAL ********* -->
+    <ng-template #addHoldingModal>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-sm-5" id="divHeading">
+                    <fa-icon [icon]="faDollarSign"></fa-icon><span id="spnHeading">Add Holding</span>
+                </div>
+                <button id="btnClose" class="close" (click)="closeModal(this.addHoldingDialog)" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">  
+                <div class="form-row">
+                    <div class="row form-group col-12">
+                        <div class='col-sm-4 control-label lbl-modal'>Select Holding:</div>
+                        <div class="col-sm-8 no-right-padding">
+                            <select class='form-control' (change)='onOptionSelected($event)'>
+                                <option selected [value]="0">
+                                    ----Select an option----
+                                </option>
+                                <option *ngFor='let investment of investments' [value]="investment.Id">
+                                    {{ investment.InvestmentName }}
+                                </option>                                                                
+                            </select>
+                        </div>
+                    </div>
+                </div> 
+                <form [formGroup]="addHoldingForm" (ngSubmit)="onAddHolding()" name="holdingForm">
+                    <div class="form-row">
+                        <div *ngIf="showHoldingFields" class="row form-group col-12">
+                            <div class='col-sm-4 control-label lbl-modal no-right-padding'>Investment Code:</div>
+                            <div class="col-sm-8 no-right-padding">
+                                <input type="text" formControlName="investmentcode" class="form-control" />
+                            </div>
+                        </div>
+                        <div *ngIf="showHoldingFields" class="row form-group col-12">
+                            <div class='col-sm-4 control-label lbl-modal'>Price:</div>
+                            <div class="col-sm-8 no-right-padding">
+                                <input type="text" formControlName="price" class="form-control" />
+                            </div>
+                        </div>
+                        <div *ngIf="showHoldingFields" class="row form-group col-12">
+                            <div class='col-sm-4 control-label lbl-modal'>Units:</div>
+                            <div class="col-sm-8 no-right-padding">
+                                <input type="text" formControlName="units" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.units.errors }" />
+                                <div *ngIf="submitted && f.units.errors" class="invalid-feedback">
+                                    <div *ngIf="f.units.errors.required">Units value is required</div>
+                                    <div *ngIf="f.units.errors.pattern">Only numbers are allowed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="showHoldingFields" id="divAddButton" class="float-right">
+                        <button id="btnAdd" class="btn btn-primary" [disabled]="adding">
+                            <span *ngIf="adding" class="spinner-border spinner-border-sm mr-1"></span>
+                            Add
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ng-template>
+
+</div>

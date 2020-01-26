@@ -1,0 +1,32 @@
+<nav *ngIf="isLoggedIn$ | async" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="row col-12 no-right-padding">
+        <div class="col-2">
+            <div id="ddMenu" class="ellipsis-dropdown">
+                <button type="button" id="btnMenu" class="btn btn-info btn-color" data-toggle="dropdown" aria-expanded="false" title="Show dropdown menu">
+                    <fa-icon [icon]="faChevronDown"></fa-icon>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-left dropdown-list" aria-labelledby="btnMenu">
+                    <li [routerLink]="['/investment-list']">
+                        <a>
+                            <fa-icon [icon]="faLayerGroup"></fa-icon><span id="spnInvestments">Investments</span> 
+                        </a>
+                    </li>
+                    <li [routerLink]="['/investor-list']">
+                        <a>
+                            <fa-icon [icon]="faUsers"></fa-icon><span id="spnInvestors">Investors</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="divPageTitle" class="col-8">
+            <label >{{ pageTitle$ | async}}</label>
+        </div>
+        <div class="col-2 no-right-padding">
+            <button type="button" id="btnLogout" class="btn btn-primary float-right btn-color"
+                (click)="onLogout()">
+                Log out
+            </button>
+        </div>
+    </div>
+</nav>

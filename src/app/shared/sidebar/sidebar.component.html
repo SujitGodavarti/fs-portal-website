@@ -1,0 +1,18 @@
+<nav *ngIf="isLoggedIn$ | async" id="sidebar">
+    <div class="sidebar-header">
+        <h2>FS Portal</h2>
+    </div>
+
+    <ul class="items">
+        <li [routerLink]="['/investment-list']" routerLinkActive="active">
+            <a>
+                <fa-icon [icon]="faLayerGroup"></fa-icon><span id="spnInvestments">Investments</span> 
+            </a>
+        </li>
+        <li [routerLink]="['/investor-list']" routerLinkActive="active">
+            <a>
+                <fa-icon [icon]="faUsers"></fa-icon><span id="spnInvestors">Investors</span>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,29 @@
+<div class="div-full-page">
+    <form>
+        <div class="row col-12 form-group form-inline">
+            <input id="txtSearch" class="form-control col-4" type="text" placeholder="Search for investor..." (input)="onSearchChange($event.target.value)"/>
+        </div>
+    </form>
+
+    <!--********* INVESTORS TABLE ********* -->
+    <div class="div-table">
+        <table class="table table-striped">
+            <thead class="thead-design">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" sortable="FullName" (sort)="onSort($event)">Full Name</th>
+                    <th scope="col" sortable="PhoneNumber" (sort)="onSort($event)">Phone Number</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let investor of investors; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td><ngb-highlight [result]="investor.FullName" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="investor.PhoneNumber" [term]="searchTerm"></ngb-highlight></td>
+            <td><button type="button" class='btn btn-link float-left' (click)='onInvestorDetails(investor)' title='View investor accounts'>Details</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

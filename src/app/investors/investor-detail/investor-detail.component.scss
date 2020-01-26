@@ -1,0 +1,56 @@
+.modal-header {
+    border: none; 
+    padding-bottom: 0px;
+    margin-bottom: 20px;
+    #btnClose {
+        outline: 0; 
+        padding-top: 15px; 
+        padding-right: 11px;
+    }
+}
+
+.modal-body {
+    padding-left: 20px;
+    padding-right: 9px;
+}
+
+#txtSearch {
+    min-width: 280px; 
+    max-width: 450px;
+}
+
+.no-right-padding {
+    padding-right: 0px;
+}
+
+.lbl-modal {
+    padding-left: 15px; 
+    min-width: 100px;
+    font-weight: bold;
+    display: flex;    
+    align-items: center;
+    height: 30px;
+}
+
+#divAddButton {
+    padding-right: 14px;
+    #btnAdd {
+        width: 80px;
+        background-color: #7386D5;
+    }
+}
+
+#divHeading {
+    padding-left: 4px;
+    #spnHeading {
+        padding-left: 10px; 
+        font-weight: bold; 
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 340px) {
+    .form-control{
+        font-size: 0.92rem;
+    }
+}

@@ -1,0 +1,35 @@
+<div id="divPage">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <h1> WELCOME </h1>
+            <h2>LOGIN TO YOUR ACCOUNT</h2>
+
+            <!-- Login Form -->
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <input type="text" class="form-input fadeIn second" formControlName="username" placeholder="Username"
+                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+
+                <input type="password" class="form-input fadeIn third" formControlName="password" placeholder="Password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+
+                <div id="divError" *ngIf="submitted && errorDescription" class="form-group">
+                    {{ errorDescription }}
+                </div>
+
+                <div id="divSubmit">
+                    <button id="btnLogin" [disabled]="loading" class="fadeIn fourth">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

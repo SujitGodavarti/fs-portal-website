@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+th[sortable] {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+ }
+
+th[sortable].desc:before, th[sortable].asc:before {
+    content: '';
+    display: block;
+    background: url('assets/images/arrow-up.png') no-repeat;
+    background-size: 22px;
+    width: 22px;
+    height: 22px;
+    float: left;
+    margin-left: -22px;
+}
+
+th[sortable].desc:before {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+
+ngb-highlight span.ngb-highlight {
+    background-color: yellow;
+}
+
+// All table headers
+.thead-design {
+    color: #fff;
+    background-color: #7386D5; 
+}
+
+.div-full-page {
+    padding: 20px;
+}
+
+// Override table class alignment style globally to vertically center content in headers and cells of all tables
+.table td, .table th {
+    vertical-align: middle !important;
+}
+
+// Tables scroll horizontally on small screens
+.div-table {
+    overflow-x: auto;
+}

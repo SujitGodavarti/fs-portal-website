@@ -1,0 +1,60 @@
+#sidebar {
+    font-family: 'Poppins', sans-serif;
+    min-width: 200px;
+    max-width: 200px;
+    height: 100%;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 15px 30px 10px 20px;
+}
+
+#sidebar ul.items {
+    padding: 20px 0;
+    border: none;
+}
+
+#sidebar ul li {
+    outline: none;
+    a {
+        padding: 10px 20px;
+        font-size: 1.1em;
+        display: block;
+        cursor: pointer;
+        #spnInvestments {
+            padding-left: 14px;
+        }
+        #spnInvestors {
+            padding-left: 10px;
+        }
+    }
+} 
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #5569c3;
+}
+
+#sidebar {
+    margin-left: 0px;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -200px;
+    }
+}

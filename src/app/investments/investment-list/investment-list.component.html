@@ -1,0 +1,35 @@
+<div class="div-full-page">
+    <form>
+        <div class="row col-12 form-group form-inline">
+            <input id="txtSearch" class="form-control col-4" type="text" placeholder="Search for investment..." (input)="onSearchChange($event.target.value)"/>
+        </div>
+    </form>
+
+    <!--********* INVESTMENTS TABLE ********* -->
+    <div class="div-table">
+        <table class="table table-striped">
+            <thead class="thead-design">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" sortable="InvestmentCode" (sort)="onSort($event)">Investment Code</th>
+                    <th scope="col" sortable="InvestmentName" (sort)="onSort($event)">Investment Name</th>
+                    <th scope="col" sortable="Market" (sort)="onSort($event)">Market</th>
+                    <th scope="col" sortable="Currency" (sort)="onSort($event)">Currency</th>
+                    <th scope="col" sortable="Price" (sort)="onSort($event)">Price</th>
+                    <th scope="col" sortable="PriceUpdatedUtc" (sort)="onSort($event)">Price Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let investment of investments; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td><ngb-highlight [result]="investment.InvestmentCode" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="investment.InvestmentName" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="investment.Market" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="investment.Currency" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="investment.Price" [term]="searchTerm"></ngb-highlight></td>
+            <td><ngb-highlight [result]="investment.PriceUpdatedUtc" [term]="searchTerm"></ngb-highlight></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
