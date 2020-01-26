@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Steps to setup and run the project locally
 - If git is not installed on your machine, please install it by following the steps mentioned in the link https://www.atlassian.com/git/tutorials/install-git
-- Clone the public repository '' using the steps mentioned in the link https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+- Clone the public repository 'https://github.com/SujitGodavarti/fs-portal-website.git' using the steps mentioned in the link https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 - Go to the command prompt and check the version of Node.js currently installed using the command 
    `node -v`. 
 - It is recommended to download latest stable version of Node.js from https://nodejs.org/en/ . Install it after download is complete.
